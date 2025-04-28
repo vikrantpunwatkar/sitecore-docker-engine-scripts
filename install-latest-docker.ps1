@@ -5,7 +5,7 @@
 param(
     [string]$dockerEnginePath = "C:\",
     [string]$dockerInstallPath = "C:\Docker",
-    [string]$dockerEngineUrl = "https://download.docker.com/win/static/stable/x86_64/docker-24.0.6.zip",
+    [string]$dockerEngineUrl = "https://download.docker.com/win/static/stable/x86_64/docker-28.1.1.zip",
     [string]$dockerZip = "docker.zip",
 
     [string]$serviceName = "docker",
@@ -63,7 +63,7 @@ function FetchLatestEngineUrl
 
 	if ($latestVersion -ne $null -and $latestDownloadLink -ne $null) {
 		Write-Host "Latest Available Version: $latestVersion"
-		$dockerEngineUrl = "$archiveUrl$latestDownloadLink"
+		$script:dockerEngineUrl = "$archiveUrl$latestDownloadLink"
 		
 	} else {
 		Write-Host "Unable to find the latest version and download link. Installing 24.0.6"
